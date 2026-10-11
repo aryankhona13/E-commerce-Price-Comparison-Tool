@@ -1,14 +1,21 @@
 # Import 'streamlit', the library that builds the web page.
 import streamlit as st
 
-# Import the shop settings and the search function from price_compare.py.
-from price_compare import SHOPS, find_best_product
+# Import the shop settings, the search function, and the project details from price_compare.py.
+from price_compare import SHOPS, find_best_product, PROJECT_TITLE, PROJECT_INFO
 
 # Set the title that appears on the browser tab.
-st.set_page_config(page_title="Electronics Price Comparison")
+st.set_page_config(page_title=PROJECT_TITLE)
 
-# Show a big heading at the top of the page.
-st.title("Electronics Price Comparison")
+# Show the project title as a big heading.
+st.title(PROJECT_TITLE)
+
+# Show each detail line (name, branch, enrollment, subject) under the title.
+for line in PROJECT_INFO:
+    st.write(line)
+
+# Draw a horizontal line to separate the details from the search box.
+st.divider()
 
 # Show a text box where the user types the product name.
 search_text = st.text_input("Product name", placeholder="e.g. lithium ion battery 18650")
