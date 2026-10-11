@@ -11,6 +11,21 @@ from bs4 import BeautifulSoup
 import re
 
 # ============================================================
+# PROJECT DETAILS
+# ============================================================
+
+# The project title shown at the top of the program and on the website.
+PROJECT_TITLE = "E-Commerce Price Comparison Tool"
+
+# The project details shown under the title.
+PROJECT_INFO = [
+    "Name: Aryan Khona",
+    "Branch: BE ECE, Semester 5",
+    "Enrollment No: 250203111017",
+    "Subject: Python Mini Project",
+]
+
+# ============================================================
 # SHOP SETTINGS
 # Each shop has 4 settings:
 #   search_url: the shop's search page. {query} is replaced by what you type.
@@ -42,17 +57,6 @@ SHOPS = {
         "title": ".card-title",
         # On Robocraze, the sale price is inside a tag with this class name.
         "price": ".price-item--sale",
-    },
-    # Start the Ktron settings.
-    "Ktron": {
-        # The Ktron search page address, with {query} where the product name goes.
-        "search_url": "https://www.ktron.in/?s={query}&post_type=product",
-        # On Ktron, each product box is a list item with class "product".
-        "card": "li.product",
-        # On Ktron, the product name is inside an h2 tag in this box.
-        "title": ".mf-product-details-hover h2",
-        # On Ktron, the sale price is inside an ins tag in this box.
-        "price": ".mf-product-details-hover ins",
     },
 }
 
@@ -196,14 +200,29 @@ def show_table(search_text, results):
     print("-" * 90)
 
 
+# This function prints the title and the project details at the top of the program.
+def print_header():
+    # Print a line of equal signs above the title.
+    print("=" * 60)
+    # Print the title, centered in 60 characters.
+    print(PROJECT_TITLE.center(60))
+    # Print another line of equal signs below the title.
+    print("=" * 60)
+    # Print each detail line (name, branch, enrollment, subject).
+    for line in PROJECT_INFO:
+        print(line)
+    # Print a closing line of equal signs.
+    print("=" * 60)
+
+
 # ============================================================
 # MAIN PROGRAM
 # ============================================================
 
 # This is the main function. It runs the program from start to finish.
 def main():
-    # Show the program title.
-    print("Live Electronics Price Comparison")
+    # Show the title and project details.
+    print_header()
     # Tell the user how to stop the program.
     print("Type any product name, or 'quit' to exit.")
 
